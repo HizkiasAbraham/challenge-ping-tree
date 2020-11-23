@@ -15,6 +15,7 @@
     "ava": "^3.13.0",
     "depcheck": "^1.2.0",
     "fakeredis": "^2.0.0",
+    "map-limit": "0.0.1",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "servertest": "^1.2.1",
