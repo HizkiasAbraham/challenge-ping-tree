@@ -12,7 +12,7 @@ test.serial.cb('healthcheck', function (t) {
   servertest(server(), url, { encoding: 'json' }, function (err, res) {
     t.falsy(err, 'no error')
 
-    t.is(res.statusCode, 200, 'correct statusCode')
+    t.is(res.statusCode, 200, 'correct status code')
     t.is(res.body.status, 'OK', 'status is ok')
     t.end()
   })
@@ -42,7 +42,7 @@ test.serial.cb('get targets GET /api/targets', function (t) {
   }, function (err, res) {
     t.falsy(err, 'no error')
     t.is(res.statusCode, 200, 'correct status code')
-    t.deepEqual(res.body, mockTargets, 'no targets')
+    t.deepEqual(res.body, mockTargets, 'correct targets')
     t.end()
   })
 })
