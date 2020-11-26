@@ -112,3 +112,27 @@ test.serial.cb('should reject POST /route', function (t) {
   })
   stream.end(JSON.stringify(requestInfo))
 })
+
+test.serial.cb('should route POST /route post with multple params',
+  function (t) {
+    var url = '/route'
+    var requestInfo = {
+      geoState: 'ca',
+      publisher: 'mega',
+      timestamp: '2018-07-19T18:28:59.513Z',
+      zipCode: '90001',
+      hobby: 'fiction'
+    }
+
+    var expected = { url: 'http://fifth.com' }
+    var stream = servertest(server(), url, {
+      encoding: 'json', method: 'POST'
+    }, function (err, res) {
+      t.falsy(err, 'no error')
+      t.is(res.statusCode, 200, 'correct code')
+      t.deepEqual(res.body, expected, 'correct result')
+      t.end()
+    })
+
+    stream.end(JSON.stringify(requestInfo))
+  })
